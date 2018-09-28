@@ -12,18 +12,18 @@ function Start(){
 
 	//////////////////////////////
 
-	N("<b>COMING OUT SIMULATOR 2014</b>");
-	N("A half-true game about half-truths.");
-	N("Hey there, player. Welcome to this game, I guess.");
-	N("What would you like to do now?");
+	N("<b>커밍 아웃 시뮬레이터 2014</b>");
+	N("반쪽자리 진실에 대한 반쪽 진실 게임.");
+	N("이봐 너, 플레이어. 아마도지만 이 게임에 온걸 환영해.");
+	N("이제 뭐할거야?");
 
 	Choose({
-		"Let's play this thing!": Play,
-		"Who are you? (Credits)": function(){
-			Credits("Who are you?");
+		"플레이하자고!": Play,
+		"넌 누군데? (크레딧)": function(){
+			Credits("넌 누구야?");
 		},
-		"Hm, tell me more. (About This Game)": function(){
-			About("Hm, tell me more.");
+		"흠. 좀 더 설명해줘. (이 게임에 대해)": function(){
+			About("흠, 좀 더 설명해줘.");
 		}
 	});
 
@@ -44,56 +44,56 @@ function Play(message){
 
 	// Asked neither
 	if(!$.asked_about && !$.asked_credits){
-		N("Jumping right into it! Great!");
-		N("No messing around with reading the Credits or the About This Game sections or--");
-		p("Shush.");
-		N("Fine, fine.");
+		N("바로 시작하는구나! 대단해!");
+		N("만든 사람에 대한 정보를 읽지도 않고 게임에 대한 정보도 안 보고 그리고--");
+		p("쉿.");
+		N("괜찮아, 괜찮아.");
 	}
 	// Asked both
 	if($.asked_about && $.asked_credits){
 		p(". . .");
-		p("Why did you make that a clickable option, when it was the only option left.");
-		N("NO IDEA");
+		p("왜 가능한 옵션이 하나만 남아있는 때에도 클릭 가능한 옵션을 만들까?");
+		N("모르겠네.");
 	// Asked either
 	}else if($.asked_about || $.asked_credits){
-		N("Yes, let's!");
+		N("그래. 시작하자!");
 	}
 
-	N("Let's travel back four years ago, to 2010...");
-	p("That was FOUR years ago?!");
-	N("...to the evening that changed my life forever.");
+	N("4년전인 2010년으로 되돌아갈거야...");
+	p("4년 전이라고?!");
+	N("...내 삶을 톨째로 바꿔버린 모든 것이 있는 그 곳으로.");
 
-	N("Tell me, dear player, how do you think this all ends?");
+	N("플레이어야 말해봐. 이게 전부 어떻게 끝날것 같아?");
 
 	Choose({
-		"With flowers and rainbows and gay unicorns?": function(message){
+		"꽃이랑 무지개랑 게이 유니콘?": function(message){
 			$.main_menu_convo_1 = 1;
 
 			p(message);
-			N("Yes. That is exactly how this game ends.");
-			p("Really?");
-			N("No.");
+			N("그래. 그게 정확히 끝나는 방식이야.");
+			p("진짜?");
+			N("아니.");
 			Play_2();
 		},
-		"Apparently, with you redditing at Starbucks.": function(message){
+		"아마 스타벅스에서 너랑 SNS 하려나?": function(message){
 			$.main_menu_convo_1 = 2;
 
 			p(message);
-			N("Hey, I'm coding on this laptop. Turning my coming-of-age story into the game you're playing right now.");
-			p("Naw, you're probably procrastinating.");
-			N("Look who's talking.");
-			p("Touché, douché.");
-			N("Anyway...");
+			N("이봐, 난 노트북으로 코딩중이라고. 니가 지금 플레이하는 게임으로 돌아와.");
+			p("너 분명 미루고 있어.");
+			N("말하는 사람을 보라고.");
+			p("음..");
+			N("어쨌든...");
 			Play_2();
 		},
-		"IT ALL ENDS IN BLOOD": function(message){
+		"모두 다 피에 물들겠지": function(message){
 			$.main_menu_convo_1 = 3;
 
 			p(message);
-			N("Uh, compared to that, I guess my story isn't that tragic.");
-			N("Although that's kind of a glass one-hundredths-full interpretation.");
-			p("blooooood.");
-			N("Anyway...");
+			N("미안한데 이야기가 그렇게 끔찍하진 않거든.");
+			N("새발의 피일지도 모르지만.");
+			p("피....피를 줘.....");
+			N("어쨌든간에...");
 			Play_2();
 		}
 	});
@@ -103,37 +103,37 @@ function Play(message){
 function Play_2(){
 
 	if(!$.asked_about){
-		N("If you didn't skip the About This Game section, you'd know this is a very personal story.");
-		p("Shush.");
+		N("게임에 대해서 부분을 스킵하지 않았으면 이게 엄청 개인적인 이야기라는걸 알고 있겠지.");
+		p("쉿.");
 	}
 
-	N("This game includes dialogue that I, my parents, and my ex-boyfriend actually said.");
-	N("As well as all the things we could have, should have, and never would have said.");
-	N("It doesn't matter which is which.");
-	N("Not anymore.");
+	N("이 게임은 나, 부모님, 내 예전 남자친구가 실제로 말했던 대화가 들어있어.");
+	N("우리가 가질 수도 있었던, 가졌어야 했던, 그리고 절대 말하지 말았어야 할 것들이야.");
+	N("뭐가 뭔지는 중요하지 않아.");
+	N("더 이상은.");
 
 	Choose({
-		"How can I win a game with no right answers?": function(message){
+		"정답이 없는 게임에서 어떻게 이길 수 있어?": function(message){
 			$.main_menu_convo_2 = 2;
 
 			p(message);
-			N("Exactly.");
+			N("확실히.");
 			p(". . .");
 			Play_3();
 		},
-		"You're a bit of a downer, aren't you?": function(message){
+		"너 좀 우울한거 같다.": function(message){
 			$.main_menu_convo_2 = 1;
 
 			p(message);
-			N("LIFE is a bit of a downer.");
-			p("So that's a yes.");
+			N("'삶'은 약간의 우울과 함께 하지.");
+			p("뭐, 맞는 말이야.");
 			Play_3();
 		},
-		"This 'true' game is full of lies?": function(message){
+		"이 '진짜' 게임은 거짓말 투성이야?": function(message){
 			$.main_menu_convo_2 = 3;
 
 			p(message);
-			N("Even if the dialogue was 100% accurate, it'd still be 100% lies.");
+			N("대화가 100% 맞지 않는다고 해도 아마 여전히 100% 거짓말일거야.");
 			p(". . .");
 			Play_3();
 		}
@@ -143,22 +143,22 @@ function Play_2(){
 
 function Play_3(){
 
-	N("You'll be playing as me, circa 2010.");
+	N("넌 2010년의 나로 플레이할거야.");
 	if(!$.asked_credits){
-		N("Because you skipped the Credits, my (not-yet-legal) name is Nicky Case. Just so you know.");
-		p("Shush.");
+		N("너가 크레딧을 스킵했으니 말해두겠는데, 내 (아직 법적이지 않은) 이름은 니키 케이스야. 알아두라고.");
+		p("쉿.");
 	}
 
 	var whatISay;
 	switch($.main_menu_convo_1){
-		case 1: whatISay = "This game doesn't end with gay unicorns. "; break;
-		case 2: whatISay = "This game is a coming-out, a coming-of-age, a coming-to-terms. "; break;
-		case 3: whatISay = "This game ends not in blood, but in tears. "; break;
+		case 1: whatISay = "이 게임은 게이 유니콘으로 끝나지 않아. "; break;
+		case 2: whatISay = "이 게임은 커밍 아웃, 성년 시절 오고가는 때야. "; break;
+		case 3: whatISay = "이 게임은 피가 아닌 눈물로 끝나. "; break;
 	}
 	switch($.main_menu_convo_2){
-		case 1: whatISay += "Sorry for being a bit of a downer."; break;
-		case 2: whatISay += "And there are no right answers."; break;
-		case 3: whatISay += "And it's full of lies."; break;
+		case 1: whatISay += "약간 우울해질지도 모르는 것에 대해서는 사과할게."; break;
+		case 2: whatISay += "그리고 정답은 없어."; break;
+		case 3: whatISay += "그리고 모두 거짓말 투성이지."; break;
 	}
 	N(whatISay);
 
@@ -166,7 +166,7 @@ function Play_3(){
 	Show("nicky","coffee_nicky_drink");
 	Show("cup",null);
 
-	p("Hey, I just said that!");
+	p("이봐, 그건 말했잖아!");
 
 	// HACK - Just clear dialogue & stuff.
 	Wait(1000);
@@ -180,14 +180,14 @@ function Play_3(){
 	Show("nicky","coffee_nicky_still_2");
 	Wait(500);
 	
-	N("When you play...");
-	N("Choose your words wisely.");
-	N("Every character will remember everything you say. Or don't say.");
-	p("Yeah. You even brought up my choices in this MAIN MENU.");
-	N("Exactly.");
+	N("플레이할 때...");
+	N("단어를 지혜롭게 골라.");
+	N("모든 캐릭터는 니가 말하거나 말하지 않은 모든 것을 기억할거야.");
+	p("그래. 니가 이 '메인 메뉴'에서 한 선택조차도 말이야.");
+	N("정확하게.");
 
 	N(". . .");
-	N("Some things are hard not to remember.");
+	N("몇가지는 기억하기 어렵지는 않을거야.");
 	
 	Clear();
 	Start_Jack_1();
@@ -201,44 +201,44 @@ function Credits(message){
 	if($.asked_about){
 		SipCoffee(message);
 	}else{
-		SipCoffee("Who are you?");
+		SipCoffee("넌 누구니?");
 	}
 	
-	N("Ah, how rude of me! Let me introduce myself.");
-	N("Hi, I'm Nicky Case.");
-	N("That's not my legal name, it's just my REAL name.");
+	N("아, 안녕. 내 소개를 할게.");
+	N("난 니키 케이스야.");
+	N("적법한 이름은 아니야. 그냥 '진짜' 이름일 뿐이지.");
 
-	p("That's totes weird, dude.");
+	p("그건 좀 이상한데.");
 	if($.asked_about){
-		p("And like you just told me, this is your personal story?");
+		p("그리고 아까 말해준 것처럼, 이게 너의 개인적인 이야기야?");
 	}else{
-		p("And you made this game?");
+		p("그리고 니가 이 게임을 만들었어?");
 	}
 
-	N("Yep, I am the sole writer / programmer / artist of Coming Out Simulator 2014.");
+	N("그래. 난 이 게임의 작가이자 프로그래머이자 아티스트야. 혼자서 만들었지.");
 
 	if($.asked_about){
-		p("All of this yourself?");
-		p("I said it before and I'll say it again...");
-		p("Of course. You narcissist.");
-		N("Well it's not ALL me.");
-		N("The sounds & audio are from various public domain sources.");
+		p("이걸 다 너 혼자?");
+		p("이전에도 말했고 다시 말할거지만...");
+		p("당연하지. 이 나르시스트야.");
+		N("전부 내가 한건 아니야.");
+		N("사운드랑 오디오는 다양한 퍼블릭 도메인 소스를 사용했어.");
 	}else{
-		N("The sounds & audio, though, are from various public domain sources.");
+		N("사운드랑 오디오는 다양한 퍼블릭 도메인 소스를 사용했어.");
 	}
 
-	N("But although it's mostly just me behind this game...");
-	N("...there's a lot of people behind this game's story.");
+	N("이 게임의 뒤에 있는게 주로 나이긴 하지만...");
+	N("...이 게임의 스토리 뒤에는 많은 사람이 있어.");
 
 	if($.asked_about){
 		Choose({
-			"Speaking of which, let's play that! Now!": Play
+			"설명은 그만하고 이제 플레이해보자!": Play
 		});
 	}else{
 		Choose({
-			"Speaking of that, can we play it now?": Play,
-			"Why'd you make this? (About This Game)": function(){
-				About("Why'd you make this?");
+			"지금 플레이 할 수 있어?": Play,
+			"이 게임 왜 만들었어? (이 게임에 대해서)": function(){
+				About("왜 이 게임을 만들었어?");
 			}
 		});
 	}
@@ -252,41 +252,41 @@ function About(message){
 	SipCoffee(message);
 
 	if($.asked_credits){
-		N("I wanted to tell my story.");
+		N("난 내 이야기를 말하고 싶었어.");
 	}else{
-		N("This game...");
-		N("...more like a conversation simulator, really...");
-		N("...is a very personal story.");
+		N("이 게임...");
+		N("...대화 시뮬레이터처럼 보이지만 실은...");
+		N("...아주 개인적인 이야기야..");
 	}
 	
-	p("Of course. You narcissist.");
-	N("Ha, of course.");
+	p("당연하겠지. 나르시스트야.");
+	N("뭐, 그렇겠지.");
 
 	if($.asked_credits){
-		p("Actually no, a narcissist would use their real name.");
-		N("I told you, it IS my real na--");
-		p("Aight, aight. Weirdo.");
+		p("나르시스트 아니야. 나르시스트는 진짜 이름을 쓰겠지.");
+		N("내가 말했어. 이건 내 '진짜 이--");
+		p("그래, 그래. 이상해하긴.");
 	}
 
-	N("I made this game for the #Nar8 Game Jam. Gave me an excuse. And a deadline!");
-	p("You procrastinated until the last day to enter, didn't you.");
-	N("Yes.");
-	N("Also! This game is uncopyrighted. Dedicated to the public domain.");
-	N("I'm as open with my source code as I am with my sexuality.");
+	N("#Nar8 게임잼을 위해서 만들었어. 변명과 데드라인을 나한테 줬지.");
+	p("마지막 날이 될 때까지 기다려야 하지 않았냐?");
+	N("맞아.");
+	N("그리고 이 게임은 저작권이 없어. 퍼블릭 도메인으로 배포하거든.");
+	N("내 성적 관심처럼 이 소스 코드도 오픈되어 있어.");
 
-	p("Ugh, that's a terrible pun.");
-	N("Howzabout a 'Fork Me' programming pun?");
-	p("noooooo.");
+	p("그건 끔찍한 말투야.");
+	N("'Fork Me' 프로그래밍은 좨뮜뉘?");
+	p("하지마아아.");
 
 	if($.asked_credits){
 		Choose({
-			"Let's just play this game already.": Play
+			"그냥 게임이나 하자.": Play
 		});
 	}else{
 		Choose({
-			"Bad puns aside, can we play now?": Play,
-			"So who ARE you? (Credits)": function(){
-				Credits("So who ARE you?");
+			"이상한 말은 됐고 플레이할까?": Play,
+			"그래서 넌 누군데? (크레딧)": function(){
+				Credits("그래서 넌 누군데?");
 			}
 		});
 	}
