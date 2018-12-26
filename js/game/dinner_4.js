@@ -5,23 +5,23 @@
 function Start_Dinner_4(){
 
 	n(". . .");
-	m("It's because your dad's almost never home, isn't it?");
-	m("Without a strong male role model, you become confused...");
+	m("네 아빠가 거의 집에 오지 않기 때문이야. 그렇지?");
+	m("강력한 남성상 모델이 없이는 헷갈릴거야...");
 
 	Choose({
-		"Yeah, coz Dad's SUCH a great role model.": function(message){
+		"네네 아빠는 정말로 굉장한 롤 모델이죠.": function(message){
 			n(message);
-			m("Nick, no matter what, he's your father. You should love him.");
+			m("닉, 이유가 뭐든간에 네 아빠야. 사랑해야지.");
 			My_Fault();
 		},
-		"That's not how it works. I'd be bi anyway.": function(message){
+		"그런게 아니에요. 난 어쨌든 바이라구요.": function(message){
 			n(message);
-			m("How do you know?! Are you an expert in psychology?!");
+			m("그걸 어떻게 아니? 네가 심리학 전문가니?!");
 			My_Fault();
 		},
-		"You know what? Maybe you're right.": function(message){
+		"뭘 아세요? 아마 맞을수도 있겠죠.": function(message){
 			n(message);
-			m("I know...");
+			m("그래...");
 			My_Fault();
 		}
 	});
@@ -33,20 +33,20 @@ function My_Fault(){
 	Show("clock_time","clock_1930");
 
 	n(". . .");
-	m("This is all my fault...");
-	m("I told you to be careful around those kinds of people, but I told you too late...");
+	m("이건 다 내 잘못이구나...");
+	m("이런 류의 사람들 사이에서 조심하라고 말하는게 너무 늦었구나...");
 
 	Show("mom","mom_cry");
 
-	m("[sob]");
-	m("Oh Nick! My poor baby!");
+	m("[훌쩍]");
+	m("오 닉! 불쌍한 아가!");
 
 	Show("nicky","dinner_nicky_sit");
 
 	Choose({
-		"Mom... please don't cry...": Cry_1,
-		"Quit your fake crying.": Cry_2,
-		"[cry]": Cry_3
+		"엄마... 울지마요...": Cry_1,
+		"가짜 울음 그만두세요.": Cry_2,
+		"[울음]": Cry_3
 	});
 }
 
@@ -55,12 +55,12 @@ function Cry_1(message){
 	$.crying = "sympathy";
 
 	n(message);
-	m("huu... huu... huu...");
-	n("I'm sorry. About Jack, the lies, everything.");
-	m("owww... owww...");
-	n("I take it all back.");
-	m("sniff...");
-	n("...please...");
+	m("흑... 흑... 흑...");
+	n("잭이랑 거짓말, 모든게 미안해요.");
+	m("흐윽... 흐윽...");
+	n("되돌려 놓을게요.");
+	m("훌쩍...");
+	n("...제발...");
 	What_Are_You();
 }
 
@@ -70,12 +70,12 @@ function Cry_2(message){
 	Show("nicky","dinner_nicky_defiant");
 
 	n(message);
-	m("huu... huu... huu...");
-	n("Seriously, it is SO fake.");
-	m("owww... owww...");
-	n("Will you shut up?!");
-	m("sniff...");
-	n("SHUT. UP.");
+	m("흑... 흑... 흑...");
+	n("진심으로 가짜같거든요.");
+	m("흐윽... 흐윽...");
+	n("좀 조용히 해줄래요?!");
+	m("훌쩍...");
+	n("조. 용. 히.");
 	What_Are_You();
 
 }
@@ -85,12 +85,12 @@ function Cry_3(message){
 	$.crying = "mocking";
 	Show("nicky","dinner_nicky_outrage");
 
-	n("BAWWWWW");
-	m("huu... huu... huu...");
-	n("WAH WAH WAH WAH WAHHH");
-	m("owww... owww...");
-	n("BRRrrRR-BRR-BRbR BWAH BWAHRR rrrRRR-WaahHH WO WO WO RaaahhH");
-	m("sniff...");
+	n("으아아아아앙");
+	m("흑... 흑... 흑...");
+	n("엉 엉 엉 엉 엉엉");
+	m("흐윽... 흐윽...");
+	n("흐엉어엉어어엉 흑흑 흐아아앙 흐윽 흐윽 으아앙");
+	m("훌쩍...");
 
 	Show("nicky","dinner_nicky_defiant");
 	n("Okay, we done?");
@@ -101,50 +101,50 @@ function Cry_3(message){
 function What_Are_You(){
 
 	m(". . .");
-	m("Nick... what are you?");
-	n("Excuse me?");
+	m("닉... 넌 뭐니?");
+	n("네?");
 
 	Show("nicky","dinner_nicky_sit");
 
 	Show("mom","mom_sit");
-	m("What <i>are</i> you?");
+	m("넌 <i>무엇</i>이니?");
 
 	Choose({
-		"I'm bisexual.": function(message){
+		"난 바이섹슈얼이에요.": function(message){
 
 			$.what_are_you = "bisexual";
 
 			n(message);
 			if($.admit_bisexuality){
-				m("...and you said that means...");
+				m("...그러면 네가 말했던 것이...");
 			}
-			n("Sexually attracted to both men and women.");
-			m("You can't be both.")
-			m("You have to pick one.");
-			n("That's... not how it works. At all.");
+			n("남자와 여자 모두에게 성적으로 끌리는 거죠.");
+			m("둘다 될수는 없어.")
+			m("넌 한쪽을 선택해야만 해.");
+			n("그게... 그런 식이 아니에요.");
 			Have_You_Had_Sex();
 
 		},
-		"I'm just confused.": function(message){
+		"그냥 헷갈렸어요.": function(message){
 
 			$.what_are_you = "confused";
 
 			n(message);
-			m("...I know.");
-			m("I'm sorry Jack confused you.");
-			m("You're just going through a phase, it's okay.");
+			m("...이해한다.");
+			m("잭이 널 헷갈리게 했겠지.");
+			m("넌 그저 단계를 지나가는 중이란다. 괜찮단다.");
 			n(". . .");
-			m("It's okay. It's okay...");
+			m("괜찮아, 괜찮아...");
 			Have_You_Had_Sex();
 
 		},
-		"I'm your son, dammit.": function(message){
+		"난 엄마 아들이에요, 젠장.": function(message){
 
 			$.what_are_you = "son";
 
 			n(message);
 			n(". . .");
-			n("Isn't that enough?");
+			n("이걸로 충분하세요?");
 			Have_You_Had_Sex();
 
 		}
@@ -153,23 +153,23 @@ function What_Are_You(){
 
 function Have_You_Had_Sex(){
 	m(". . .");
-	m("Did you have sex with Jack.");
+	m("잭이랑 같이 잔 적이 있니?");
 	Choose({
-		"Yes.": function(message){
+		"네.": function(message){
 			n(message);
-			m("[DRY HEAVE]");
+			m("[헛구역질]");
 			Have_You_Had_Sex_2();
 		},
-		"No.": function(message){
+		"아니오.": function(message){
 			n(message);
-			m("Please stop lying... I saw your texts...");
-			n("We were just sexting, we didn't actually--");
-			m("...and your photos...");
+			m("거짓말은 그만 두렴... 문자를 봤단다...");
+			n("문자로만 그런거에요. 실제로는--");
+			m("...그리고 사진도...");
 			Have_You_Had_Sex_2();
 		},
-		"I'm not saying.": function(message){
+		"말하지 않을거에요.": function(message){
 			n(message);
-			m("oh my god... you did.");
+			m("이런... 했구나.");
 			Have_You_Had_Sex_2();
 		}
 	});
@@ -178,33 +178,33 @@ function Have_You_Had_Sex(){
 function Have_You_Had_Sex_2(){
 
 	n(". . .");
-	m("Which... one of you is the woman?");
+	m("누가... 여자니?");
 
 	Show("nicky","dinner_nicky_outrage");
 
-	n("OH COME ON!");
-	n("That's like asking which chopstick is the spoo--");
-	m("Which one of you?...");
+	n("아 제발!");
+	n("그거 어떤 젓가락이 숟가락인지 묻는--");
+	m("누구니?...");
 
 	Show("nicky","dinner_nicky_defiant");
 
 	Choose({
-		"I'm usually the bottom.":function(message){
+		"제가 보통 바텀이에요.":function(message){
 			$.top_or_bottom = "bottom";
 
 			n(message);
 			Throw_Up();
 		},
-		"Jack is, mostly.":function(message){
+		"잭이요. 대부분은.":function(message){
 			$.top_or_bottom = "top";
 
 			n(message);
-			m("Th-that... means you could still be straight! R-right?...");
-			m("If... you know... you're the one who puts your...");
-			m("your...");
+			m("그-그건... 아직은 괜찮다는 거겠지! 그-그렇지?...");
+			m("만약... 안다면... 네가 너의 것을 넣은...");
+			m("너의...");
 			Throw_Up();
 		},
-		"We take turns.":function(message){
+		"바꿔서 해요.":function(message){
 			$.top_or_bottom = "versatile";
 
 			n(message);
@@ -223,9 +223,9 @@ function Throw_Up(){
 	Wait(1000);
 
 	Choose({
-		"what.": Father_Soon,
-		"whaaat.": Father_Soon,
-		"whaaaaaaaaaaaaaaat.": Father_Soon
+		"뭐?": Father_Soon,
+		"뭐어???": Father_Soon,
+		"뭐어어어어어어어엇?": Father_Soon
 	});
 
 }
@@ -237,67 +237,67 @@ function Father_Soon(message){
 	Show("mom","mom_sit");
 
 	m(". . .");
-	m("Your father will be back soon.");
-	n("The food's cold. Well, except for the spot you just uh, reversed, on.");
-	m("Your dad's late. Must have been a stressful day at work.");
-	m("So... please... when he's back...");
-	m("Promise me you'll keep all this secret?");
+	m("너희 아버지가 곧 오실거다.");
+	n("음식이 식었어요. 음, 방금 뒤집은것 빼면요.");
+	m("아버지가 늦는구나. 직장에서 스트레스를 많이 받으셨을거다.");
+	m("그러니... 제발... 왔을때...");
+	m("이 모든 비밀을 지키기로 약속할 수 있겠니?");
 	n(". . .");
 
-	m("Don't tell him about Jack.");
+	m("잭에 대해서는 말하지 말렴.");
 
 	switch($.what_are_you){
 		case "bisexual":
-			m("Don't tell him you think you're bisexual.");
+			m("네가 바이섹슈얼이라는 걸 아버지한데 말하지 말거라.");
 			break;
 		case "confused":
-			m("Don't tell him you're confused about your sexuality.");
+			m("너의 성적 관심에 대해 헷갈렸다는 것을 말하지 말거라.");
 			break;
 		case "son":
-			m("Don't tell him you lied to us so you could... do things with Jack.");
+			m("잭이랑 그런걸... 했다는 거에 대해서 거짓말한걸 말하지 말거라.");
 			break;
 	}
 
 	switch($.top_or_bottom){
 		case "top":
-			m("Don't tell him you make Jack a woman.");
+			m("네가 잭을 여자로 만들었다는 것을 말하지 말렴.");
 			break;
 		case "bottom":
-			m("Don't tell him you act like a woman with Jack.");
+			m("잭에게 여자처럼 행동했다는걸 말하지 말렴.");
 			break;
 		case "versatile":
-			m("Don't tell him you and Jack both act like women.");
+			m("너와 잭 둘이서 여자처럼 행동했다는 것을 말하지 말렴.");
 			break;
 	}
 
-	m("Okay?...");
+	m("알겠지?...");
 
 	Choose({
-		"Okay.": function(message){
+		"네.": function(message){
 			$.promise_silence = "yes";
 			
 			n(message);
-			m("Okay.");
+			m("그래.");
 			m(". . .");
-			m("Your father's here.");
+			m("너희 아버지가 오셨구나.");
 			Father_Soon_2();
 		},
-		"No. Not okay.": function(message){
+		"아뇨. 안 괜찮아요..": function(message){
 			$.promise_silence = "no";
 			
 			n(message);
-			m("Nick, no no no, please--");
-			m("Oh no. Your father's here.");
+			m("닉, 안돼, 제발--");
+			m("아 안돼. 너희 아버지가 오셨구나.");
 			Father_Soon_2();
 		},
-		"As long as you don't tell him, either.": function(message){
+		"엄마가 말하지 않는다면요.": function(message){
 			$.promise_silence = "tit for tat";
 			
 			n(message);
-			m("I won't.");
-			n("Promise me you won't.");
-			m("I pr--");
-			m("Shhh. Your father's here.");
+			m("안할거란다.");
+			n("안한다고 약속해요");
+			m("약속--");
+			m("쉿. 아버지 오셨다.");
 			Father_Soon_2();
 		}
 	});
